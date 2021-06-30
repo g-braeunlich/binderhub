@@ -368,7 +368,7 @@ class BuildHandler(BaseHandler):
         else:
             push_secret = None
 
-        BuildClass = FakeBuild if self.settings.get('fake_build') else Build
+        BuildClass = FakeBuild if self.settings.get('fake_build') else self.settings.get('build_class')
 
         appendix = self.settings['appendix'].format(
             binder_url=self.binder_launch_host + self.binder_request,
